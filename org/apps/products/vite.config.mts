@@ -1,31 +1,24 @@
-/// <reference types='vitest' />
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
-import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import federation from "@originjs/vite-plugin-federation";
 
-export default defineConfig(() => ({
-  root: import.meta.dirname,
-  cacheDir: '../../node_modules/.vite/apps/products',
+export default defineConfig({
   server: {
     port: 4201,
-    host: 'localhost',
   },
-  preview: {
-    port: 4201,
-    host: 'localhost',
-  },
-  plugins: [react(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
+  plugins: [
+    react(),
+    federation({
+      name: "products",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./ProductsPage": "./src/main.tsx",
+      },
+      shared: ["react", "react-dom"],
+    }),
+  ],
   build: {
-    outDir: '../../dist/apps/products',
-    emptyOutDir: true,
-    reportCompressedSize: true,
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
+    target: "esnext",
+    minify: false,
   },
-}));
+});
