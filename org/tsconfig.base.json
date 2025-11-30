@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@org/ui": ["libs/ui/src/index.ts"],
-      "@org/util": ["libs/util/src/index.ts"]
+      "@org/util": ["libs/util/src/index.ts"],
+      "products/*": ["apps/products/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

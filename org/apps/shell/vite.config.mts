@@ -11,7 +11,7 @@ export default defineConfig({
     federation({
       name: "shell",
       remotes: {
-        products: "http://localhost:4201/assets/remoteEntry.js",
+        products: "https://cautious-waffle-jpvqvr474rgfjgw-4201.app.github.dev/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),
