@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     port: 4200,
   },
+  resolve: {
+    dedupe: ["react", "react-dom", "react-router-dom"],
+  },
   plugins: [
     react(),
     federation({
@@ -13,7 +16,7 @@ export default defineConfig({
       remotes: {
         products: "https://cautious-waffle-jpvqvr474rgfjgw-4201.app.github.dev/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   build: {

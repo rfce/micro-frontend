@@ -15,15 +15,18 @@ export default defineConfig({
       "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
     },
   },
+  resolve: {
+    dedupe: ["react", "react-dom", "react-router-dom"],
+  },
   plugins: [
     react(),
     federation({
       name: "products",
       filename: "remoteEntry.js",
       exposes: {
-        "./ProductsPage": "./src/main.tsx",
+        "./ProductsPage": "./src/app/app.tsx",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   build: {
