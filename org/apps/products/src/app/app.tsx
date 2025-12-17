@@ -12,7 +12,7 @@ export function App() {
         element={
           <div>
             This is the generated root route.{' '}
-            <Link to="/page-2">Click here for page 2. Yep</Link>
+            <Link to="/page-2">Click here for page 2.</Link>
           </div>
         }
       />

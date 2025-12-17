@@ -4,10 +4,16 @@ import federation from "@originjs/vite-plugin-federation";
 
 export default defineConfig({
   server: {
-    port: 4200,
+    port: 4202,
   },
   preview: {
-    port: 4200
+    port: 4202,
+    cors: true, // This enables Access-Control-Allow-Origin: *
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
+    },
   },
   resolve: {
     dedupe: ["react", "react-dom", "react-router-dom"],
@@ -15,10 +21,10 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "shell",
-      remotes: {
-        products: "http://localhost:4201/assets/remoteEntry.js",
-        profile: "http://localhost:4202/assets/remoteEntry.js"
+      name: "profile",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./ProfilePage": "./src/app/app.tsx",
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),

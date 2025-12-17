@@ -1,17 +1,17 @@
 {
-  "name": "products",
+  "name": "profile",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/products/src",
+  "sourceRoot": "apps/profile/src",
   "projectType": "application",
   "tags": [],
-  "// targets": "to see all targets run: nx show project products --web",
+  "// targets": "to see all targets run: nx show project profile --web",
   "targets": {
     "build-prod": {
       "executor": "nx:run-commands",
       "options": {
         "commands": [
-          "pnpm nx build products",
-          "pnpm nx preview products"
+          "pnpm nx build profile",
+          "pnpm nx preview profile"
         ],
         "parallel": false
       }

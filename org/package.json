@@ -2,7 +2,10 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve-prod shell",
+    "dev": "NX_INTERACTIVE=false nx run shell:serve"
+  },
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.5",
