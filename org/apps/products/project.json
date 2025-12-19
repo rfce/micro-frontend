@@ -19,12 +19,6 @@
     "dev": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "vite"
-      }
-    },
-    "dev": {
-      "executor": "nx:run-commands",
-      "options": {
         "cwd": "apps/products",
         "commands": [
           "vite build --mode development", 
