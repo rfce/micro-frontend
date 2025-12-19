@@ -15,6 +15,17 @@
         ],
         "parallel": false
       }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/profile",
+        "commands": [
+          "vite build --mode development", 
+          "concurrently \"vite build --watch --mode development\" \"vite preview\""
+        ],
+        "parallel": false
+      }
     }
   }
 }

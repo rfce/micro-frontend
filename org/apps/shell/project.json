@@ -26,6 +26,13 @@
         ],
         "parallel": true
       }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/shell",
+        "command": "vite --port 4200"
+      }
     }
   }
 }

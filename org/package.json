@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve-prod shell",
-    "dev": "NX_INTERACTIVE=false nx run shell:serve"
+    "dev": "nx run-many --target=dev --projects=shell,products,profile --parallel=10"
   },
   "private": true,
   "devDependencies": {
@@ -28,6 +28,7 @@
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.2.0",
     "@vitest/ui": "^4.0.0",
+    "concurrently": "^9.2.1",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-import": "2.31.0",
